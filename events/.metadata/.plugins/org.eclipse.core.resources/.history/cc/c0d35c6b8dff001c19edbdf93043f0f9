@@ -1,0 +1,15 @@
+package com.gatso.traffic.events.controller;
+
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+/**
+ * test class to test ViolationController
+ *
+ * @author vighn
+ *
+ */
+@SpringBootTest(classes = {com.gatso.traffic.events.EventsApplication.class})
+@AutoConfigureMockMvc
+public class ViolationControllerTest {
+
+}

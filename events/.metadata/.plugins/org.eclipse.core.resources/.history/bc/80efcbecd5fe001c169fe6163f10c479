@@ -1,0 +1,11 @@
+package com.gatso.traffic.events.controllers;
+
+/**
+ * Rest api to fetch Violation.
+ *
+ * @author vighn
+ *
+ */
+public class VoilationController {
+
+}

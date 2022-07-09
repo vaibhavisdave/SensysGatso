@@ -1,0 +1,27 @@
+package com.gatso.traffic.events;
+
+import org.springframework.context.ApplicationEvent;
+
+
+/**
+ * Speed traffic Event.
+ *
+ * @author vighn
+ *
+ */
+public class SpeedEvent extends ApplicationEvent{
+
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Constructor.
+   *
+   * @param source Object
+   */
+  public SpeedEvent(Object source) {
+    super(source);
+  }
+}

@@ -1,0 +1,11 @@
+package com.gatso.traffic.events.controllers;
+
+/**
+ * Rest api to fetch Voilation.
+ *
+ * @author vighn
+ *
+ */
+public class VoilationController {
+
+}

@@ -1,0 +1,11 @@
+package com.gatso.traffic.events;
+
+import org.springframework.context.ApplicationEvent;
+
+public abstract class  AbstractTrafficEvents extends ApplicationEvent{
+
+  public AbstractTrafficEvents(Object source) {
+    super(source);
+  }
+
+}

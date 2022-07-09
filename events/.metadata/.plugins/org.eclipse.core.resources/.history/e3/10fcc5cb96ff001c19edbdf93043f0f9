@@ -1,0 +1,8 @@
+package com.gatso.traffic.events.producer;
+
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest(classes = {com.gatso.traffic.events.EventsApplication.class})
+public class TrafficEventProducerTest {
+
+}

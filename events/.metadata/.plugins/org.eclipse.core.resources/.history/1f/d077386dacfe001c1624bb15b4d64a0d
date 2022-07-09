@@ -1,0 +1,12 @@
+package com.gatso.traffic.events;
+
+import org.springframework.context.ApplicationEvent;
+
+public class AbstractTrafficEvents extends ApplicationEvent{
+
+  public AbstractTrafficEvents(Object source) {
+    super(source);
+    // TODO Auto-generated constructor stub
+  }
+
+}

@@ -1,0 +1,31 @@
+package com.gatso.traffic.events.subscribers;
+
+import com.gatso.traffic.events.SpeedEvent;
+import com.gatso.traffic.events.data.TrafficEventEntity;
+import com.gatso.traffic.events.data.Voilation;
+import com.gatso.traffic.events.data.setup.TrafficEventDataSetup;
+import org.springframework.context.ApplicationListener;
+
+/**
+ * Subscriber for SpeedEvent.
+ *
+ * @author vighn
+ *
+ */
+public class SpeedEventListner implements ApplicationListener<SpeedEvent> {
+
+  private boolean isPaid;
+  
+  @Override
+  public void onApplicationEvent(SpeedEvent event) {
+    TrafficEventEntity entity = event.getEntity();
+    if (entity.getSpeed() > entity.getLimit()) {
+      Voilation voilation = new Voilation(((Double) Math.random()).longValue(),
+                                            entity.getId(), 50, isPaid);
+      TrafficEventDataSetup.addVoilation(voilation);
+      isPaid = !isPaid;
+    }
+
+  }
+
+}

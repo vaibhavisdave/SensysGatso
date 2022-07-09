@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ViolationControllerTest" project="events" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="com.gatso.traffic.events.controller.ViolationControllerTest" time="0.958" displayname="ViolationControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.gatso.traffic.events.controller.ViolationControllerTest]">
+    <testcase name="testGetSpeedPending" classname="com.gatso.traffic.events.controller.ViolationControllerTest" time="0.853" displayname="testGetSpeedPending()" uniqueid="[engine:junit-jupiter]/[class:com.gatso.traffic.events.controller.ViolationControllerTest]/[method:testGetSpeedPending()]"/>
+    <testcase name="testGetFines" classname="com.gatso.traffic.events.controller.ViolationControllerTest" time="0.061" displayname="testGetFines()" uniqueid="[engine:junit-jupiter]/[class:com.gatso.traffic.events.controller.ViolationControllerTest]/[method:testGetFines()]"/>
+    <testcase name="testGetSpeed" classname="com.gatso.traffic.events.controller.ViolationControllerTest" time="0.011" displayname="testGetSpeed()" uniqueid="[engine:junit-jupiter]/[class:com.gatso.traffic.events.controller.ViolationControllerTest]/[method:testGetSpeed()]"/>
+    <testcase name="testGetSize" classname="com.gatso.traffic.events.controller.ViolationControllerTest" time="0.007" displayname="testGetSize()" uniqueid="[engine:junit-jupiter]/[class:com.gatso.traffic.events.controller.ViolationControllerTest]/[method:testGetSize()]"/>
+    <testcase name="testGetRedLightPending" classname="com.gatso.traffic.events.controller.ViolationControllerTest" time="0.01" displayname="testGetRedLightPending()" uniqueid="[engine:junit-jupiter]/[class:com.gatso.traffic.events.controller.ViolationControllerTest]/[method:testGetRedLightPending()]"/>
+    <testcase name="testGetRedLight" classname="com.gatso.traffic.events.controller.ViolationControllerTest" time="0.008" displayname="testGetRedLight()" uniqueid="[engine:junit-jupiter]/[class:com.gatso.traffic.events.controller.ViolationControllerTest]/[method:testGetRedLight()]"/>
+  </testsuite>
+</testrun>

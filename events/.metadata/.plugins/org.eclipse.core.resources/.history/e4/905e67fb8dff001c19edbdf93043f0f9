@@ -1,0 +1,50 @@
+package com.gatso.traffic.events.controller;
+
+import java.util.Random;
+
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.gatso.traffic.events.data.Violation;
+import com.gatso.traffic.events.data.setup.TrafficEventDataSetup;
+
+/**
+ *class to test ViolationController.
+ *
+ * @author vighn
+ *
+ */
+@SpringBootTest(classes = {com.gatso.traffic.events.EventsApplication.class})
+@AutoConfigureMockMvc
+public class ViolationControllerTest {
+
+  @Autowired
+  MockMvc mvc;
+  
+  @Test
+  void testFind() throws JsonProcessingException, Exception  {
+    when(TrafficEventDataSetup.getVoilations()).thenReturn(getEvents());
+    mvc.perform(get("/customers").contentType(MediaType.APPLICATION_JSON))
+        .andExpect(result ->{
+          MockMvcResultMatchers.status().is(200);
+          MockMvcResultMatchers.jsonPath("$.data").isNotEmpty();
+          MockMvcResultMatchers.model().size(1);
+        } );
+    when(service.findById(1l)).thenReturn(Optional.of(cust));
+    mvc.perform(get("/customers/1").contentType(MediaType.APPLICATION_JSON))
+        .andExpect(result ->{
+          MockMvcResultMatchers.status().is(200);
+          MockMvcResultMatchers.jsonPath("$.data").isNotEmpty();
+          MockMvcResultMatchers.jsonPath("$.data").value(cust);
+        } );
+  }
+
+  private Object getEvents() {
+   
+    return List.of( new Violation(new Random().nextLong(1, 10000),
+                    new Random().nextLong(1, 10000), 100, true, "RED_LIGHT"),
+                    new Violation(new Random().nextLong(1, 10000),
+                        entity.getId(), 50, isPaid, "SPEED")
+        );
+  }
+}

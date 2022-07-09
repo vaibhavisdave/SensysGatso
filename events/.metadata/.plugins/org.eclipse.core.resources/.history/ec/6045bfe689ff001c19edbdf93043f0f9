@@ -1,0 +1,39 @@
+package com.gatso.traffic.events.controllers;
+
+import com.gatso.traffic.events.data.Violation;
+import com.gatso.traffic.events.data.setup.TrafficEventDataSetup;
+import io.swagger.annotations.ApiOperation;
+import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+/**
+ * Rest api to fetch Violation.
+ *
+ * @author vighn
+ *
+ */
+@RestController
+@RequestMapping("/fines")
+public class ViolationController {
+
+  @ApiOperation(value = "Fetches all fines.", response = List.class)
+  @GetMapping
+  public List<Violation> getFines() {
+    return TrafficEventDataSetup.getVoilations();
+  }
+  
+  @ApiOperation(value = "Fetches all fines.", response = List.class)
+  @GetMapping(path = "/size")
+  public int getsize() {
+    return TrafficEventDataSetup.getVoilations().size();
+  }
+  
+  @ApiOperation(value = "Fetches all fines.", response = List.class)
+  @GetMapping(path = "/speed")
+  public int getSpeed() {
+    return TrafficEventDataSetup.getVoilations().stream().filter(t -> "SPEED".equals(t.getType())).toList();
+  }
+}

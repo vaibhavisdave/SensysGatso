@@ -1,0 +1,36 @@
+package com.gatso.traffic.events.controller;
+
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+
+/**
+ *class to test ViolationController.
+ *
+ * @author vighn
+ *
+ */
+@SpringBootTest(classes = {com.gatso.traffic.events.EventsApplication.class})
+@AutoConfigureMockMvc
+public class ViolationControllerTest {
+
+  @Autowired
+  MockMvc mvc;
+  
+  @Test
+  void testFind() throws JsonProcessingException, Exception  {
+    when(service.findAll()).thenReturn(List.of(cust));
+    mvc.perform(get("/customers").contentType(MediaType.APPLICATION_JSON))
+        .andExpect(result ->{
+          MockMvcResultMatchers.status().is(200);
+          MockMvcResultMatchers.jsonPath("$.data").isNotEmpty();
+          MockMvcResultMatchers.model().size(1);
+        } );
+    when(service.findById(1l)).thenReturn(Optional.of(cust));
+    mvc.perform(get("/customers/1").contentType(MediaType.APPLICATION_JSON))
+        .andExpect(result ->{
+          MockMvcResultMatchers.status().is(200);
+          MockMvcResultMatchers.jsonPath("$.data").isNotEmpty();
+          MockMvcResultMatchers.jsonPath("$.data").value(cust);
+        } );
+  }
+}

@@ -1,0 +1,29 @@
+package com.gatso.traffic.events;
+
+import java.util.Date;
+
+import org.springframework.context.ApplicationEvent;
+
+import com.gatso.traffic.events.data.TrafficEventEntity;
+
+
+/**
+ * Speed traffic Event.
+ *
+ * @author vighn
+ *
+ */
+public class SpeedEvent extends ApplicationEvent{
+  
+  private TrafficEventEntity speedEvent;
+
+  /**
+   * Constructor.
+   *
+   * @param source Object
+   */
+  public SpeedEvent(Object source, TrafficEventEntity speedEvent) {
+    super(source);
+    speedEvent = speedEvent;
+  }
+}

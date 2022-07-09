@@ -1,0 +1,15 @@
+package com.gatso.traffic.events.subscribers;
+
+import org.springframework.context.ApplicationListener;
+
+import com.gatso.traffic.events.SpeedEvent;
+
+public class SpeedEventListner implements ApplicationListener<SpeedEvent>{
+
+  @Override
+  public void onApplicationEvent(SpeedEvent event) {
+    // TODO Auto-generated method stub
+    
+  }
+
+}

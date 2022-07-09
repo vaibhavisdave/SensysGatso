@@ -1,0 +1,13 @@
+1657212548994	Rename package 'com.gatso.traffic.events.data'
+1657277101769	Delete element
+1657287198743	Rename type 'TrafficEventData'
+1657287378724	Rename type 'TrafficEvent'
+1657288184279	Move compilation unit
+1657288370870	Rename type 'TrafficEventListner'
+1657288988498	Delete element
+1657289403098	Extract method 'getSpeedEvent'
+1657295529605	Rename type 'VoilationController'
+1657295550606	Rename type 'Voilation'
+1657372333320	Rename type 'RedLightEventListner'
+1657372349412	Rename type 'SpeedEventListner'
+1657379070712	Delete element

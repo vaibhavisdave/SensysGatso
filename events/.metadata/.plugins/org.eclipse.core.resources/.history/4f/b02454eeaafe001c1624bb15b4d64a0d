@@ -1,0 +1,5 @@
+package com.gatso.traffic.events;
+
+public class TrafficEventPublisher {
+
+}

@@ -1,0 +1,28 @@
+package com.gatso.traffic.events;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.annotation.Bean;
+
+/**
+ * Traffic EventsApplication.
+ *
+ * @author vighn
+ *
+ */
+@EnableEurekaServer
+@SpringBootApplication
+public class EventsApplication {
+
+  public static void main(String[] args) {
+    SpringApplication.run(EventsApplication.class, args);
+  }
+  
+  @Bean
+  public ApplicationEventPublisher getApplicationEventPublisher() {
+    return AppContextUtil.getBean(ApplicationEventPublisher.class);
+}
+
+}

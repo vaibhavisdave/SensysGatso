@@ -1,0 +1,5 @@
+package com.gatso.traffic.events.subscribers;
+
+public class SpeedEventListner {
+
+}

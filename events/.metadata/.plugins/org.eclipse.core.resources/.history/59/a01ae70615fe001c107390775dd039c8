@@ -1,0 +1,7 @@
+package com.gatso.traffic.events.data;
+
+public class TrafficEvent {
+  
+  
+
+}

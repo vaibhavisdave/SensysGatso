@@ -1,0 +1,22 @@
+package com.gatso.traffic.events.producer;
+
+import org.springframework.boot.test.context.SpringBootTest;
+
+/**
+ *Class to test TrafficEventProducer.
+ *
+ * @author vighn
+ *
+ */
+@SpringBootTest(classes = {com.gatso.traffic.events.EventsApplication.class})
+public class TrafficEventProducerTest {
+
+  @Mock
+  private ApplicationEventPublisher eventPublisher;
+
+  @InjectMocks
+  private TrafficEventProducer producer;
+
+  @Captor
+  private ArgumentCaptor<SomeClass> captor;
+}

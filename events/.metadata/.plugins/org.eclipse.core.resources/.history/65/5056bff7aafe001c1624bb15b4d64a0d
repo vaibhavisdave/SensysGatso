@@ -1,0 +1,11 @@
+package com.gatso.traffic.events;
+
+/**
+ * TrafficEventPublisher
+ *
+ * @author vighn
+ *
+ */
+public class TrafficEventPublisher {
+
+}

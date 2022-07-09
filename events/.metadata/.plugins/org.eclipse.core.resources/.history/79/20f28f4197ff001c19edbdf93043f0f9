@@ -1,0 +1,30 @@
+package com.gatso.traffic.events.producer;
+
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationEventPublisher;
+
+import com.gatso.traffic.events.SpeedEvent;
+import com.gatso.traffic.events.producers.TrafficEventProducer;
+
+/**
+ *Class to test TrafficEventProducer.
+ *
+ * @author vighn
+ *
+ */
+@SpringBootTest(classes = {com.gatso.traffic.events.EventsApplication.class})
+public class TrafficEventProducerTest {
+
+  @Mock
+  private ApplicationEventPublisher eventPublisher;
+
+  @InjectMocks
+  private TrafficEventProducer producer;
+
+  @Captor
+  private ArgumentCaptor<SpeedEvent> captor;
+}

@@ -1,0 +1,50 @@
+package com.gatso.traffic.events.producers;
+
+import com.gatso.traffic.events.SpeedEvent;
+import com.gatso.traffic.events.data.TrafficEventEntity;
+import com.gatso.traffic.events.data.setup.TrafficEventDataSetup;
+import java.util.Date;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationEventPublisher;
+
+
+
+/**
+ * Produces traffic event.
+ *
+ * @author vighn
+ *
+ */
+public class TrafficEventProducer {
+  @Autowired
+  private static ApplicationEventPublisher applicationEventPublisher;
+  
+  /**
+   *Pushes the event the list.
+   *
+   *@throws throws InterruptedException
+   */
+  public static void startEvents() throws InterruptedException {
+    int i = 0;
+    boolean alternateFlag = false;
+    boolean isPaid = false;
+    ApplicationEvent event = null;
+    while (i < 50) {
+      isPaid = getPaidFlag(i);
+      if (alternateFlag) {
+        event = new SpeedEvent(TrafficEventProducer.class);
+      } else {
+        event = new SpeedEvent(TrafficEventProducer.class);
+      }
+      applicationEventPublisher.publishEvent(event);
+      Thread.sleep(6000L);
+      alternateFlag = !alternateFlag;
+      i++;
+    }
+  }
+
+  private static boolean getPaidFlag(int i) {
+    return (i % 5 == 0 || i % 6 == 0) ? true : false;
+  }
+}

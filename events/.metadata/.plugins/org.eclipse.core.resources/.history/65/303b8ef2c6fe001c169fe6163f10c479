@@ -1,0 +1,29 @@
+package com.gatso.traffic.events;
+
+import java.util.Date;
+
+import com.gatso.traffic.events.data.TrafficEventEntity;
+
+
+/**
+ * Speed traffic Event.
+ *
+ * @author vighn
+ *
+ */
+public class SpeedEvent{
+  
+  private TrafficEventEntity speedEvent;
+
+  /**
+   * Constructor.
+   *
+   * @param source Object
+   */
+  public SpeedEvent(Object source) {
+    super(source);
+    speedEvent = new TrafficEventEntity(((Double) Math.random()).longValue(), 
+                                   new Date(), "SPEED", "ABC-123", 50L, 87L,
+                                  "km/h", false);
+  }
+}

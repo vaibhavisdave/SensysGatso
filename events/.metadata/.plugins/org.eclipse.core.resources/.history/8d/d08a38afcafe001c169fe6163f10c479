@@ -1,0 +1,16 @@
+package com.gatso.traffic.events.subscribers;
+
+import org.springframework.context.ApplicationListener;
+
+import com.gatso.traffic.events.SpeedEvent;
+import com.gatso.traffic.events.data.TrafficEventEntity;
+
+public class SpeedEventListner implements ApplicationListener<SpeedEvent>{
+
+  @Override
+  public void onApplicationEvent(SpeedEvent event) {
+    TrafficEventEntity entity = event.getSpeedEventEntity();
+    
+  }
+
+}

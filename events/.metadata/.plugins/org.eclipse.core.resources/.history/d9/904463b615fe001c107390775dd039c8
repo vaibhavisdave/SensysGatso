@@ -1,0 +1,15 @@
+package com.gatso.traffic.events.data;
+
+/**
+ * Voilation data object.
+ *
+ * @author vighn
+ *
+ */
+public class Voilation {
+
+  "id": "b11e87f0-89ef-11ec-a8a3-0242ac120002",
+  "eventId": "d9bb7458-d5d9-4de7-87f7-7f39edd51d18",
+  "fine": 50,
+  "paid": "false"
+}

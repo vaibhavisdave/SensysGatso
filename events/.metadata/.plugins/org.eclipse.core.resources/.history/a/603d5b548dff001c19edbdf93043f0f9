@@ -1,0 +1,8 @@
+package com.gatso.traffic.events.controller;
+
+
+@SpringBootTest(classes = {com.sogeti.asses.broker.sogetiAssesBroker.SogetiAssesmentBrokerApplication.class})
+@AutoConfigureMockMvc
+public class ViolationControllerTest {
+
+}

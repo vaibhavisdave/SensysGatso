@@ -1,0 +1,67 @@
+package com.gatso.traffic.events.data.setup;
+
+import java.awt.desktop.ScreenSleepEvent;
+import java.util.Collections;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
+
+import com.gatso.traffic.events.AbstractTrafficEvents;
+import com.gatso.traffic.events.SpeedEvent;
+import com.gatso.traffic.events.data.TrafficEvent;
+import com.gatso.traffic.events.data.Voilation;
+
+
+
+/**
+ * Utility class to maintain in memory data.
+ *
+ * @author vighn
+ *
+ */
+public class TrafficEventDataSetup {
+
+  private static Logger log =  LoggerFactory.getLogger(TrafficEventDataSetup.class);
+  private static List<TrafficEvent> trafficEventList;
+  private static List<Voilation> voilationList;
+  @Autowired
+  private static ApplicationEventPublisher applicationEventPublisher;
+  
+  /**
+   * Initialize traffice event and voilation data.
+   */
+  public static void initializeData() {
+    try {
+      trafficEventList = Collections.synchronizedList(trafficEventList);
+      voilationList = Collections.synchronizedList(voilationList);
+      startEvents();
+    } catch (Exception e) {
+      log.error(e.getMessage(), e);
+    }
+  }
+
+  private static void startEvents() throws InterruptedException {
+    int i = 0;
+    boolean alternateFlag = false;
+    AbstractTrafficEvents event = null;
+    while (i < 50) {
+      if (alternateFlag) {
+        event = new SpeedEvent(TrafficEventDataSetup.class);
+      } else {
+        event = new SpeedEvent(TrafficEventDataSetup.class);
+      }
+      applicationEventPublisher.publishEvent(event);
+      alternateFlag = !alternateFlag;
+      i++;     
+      Thread.sleep(6000L);
+    }
+
+  }
+  
+  public static void addEvent(TrafficEvent event) {
+      trafficEventList.add(event);
+  }
+}

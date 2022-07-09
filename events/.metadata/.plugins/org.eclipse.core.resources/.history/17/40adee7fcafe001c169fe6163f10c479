@@ -1,0 +1,50 @@
+package com.gatso.traffic.events;
+
+import com.gatso.traffic.events.data.TrafficEventEntity;
+
+import java.util.Date;
+
+import org.springframework.context.ApplicationEvent;
+
+
+
+
+/**
+ * Speed traffic Event.
+ *
+ * @author vighn
+ *
+ */
+public class SpeedEvent extends ApplicationEvent {
+  
+  /**
+   * UID.
+   */
+  private static final long serialVersionUID = 1L;
+  private TrafficEventEntity speedEventEntity;
+
+  /**
+   * Constructor.
+   *
+   * @param source Object
+   */
+  public SpeedEvent(Object source, boolean isPaid) {
+    super(source);
+    this.speedEventEntity = new TrafficEventEntity(((Double) Math.random()).longValue(),
+        new Date(), "SPEED",
+        "ABC-123", 50L, 87L, "km/h", isPaid);;
+  }
+
+  public TrafficEventEntity getSpeedEventEntity() {
+    return speedEventEntity;
+  }
+
+  public void setSpeedEventEntity(TrafficEventEntity speedEventEntity) {
+    this.speedEventEntity = speedEventEntity;
+  }
+
+  public TrafficEventEntity getSpeedEvent() {
+    return speedEvent;
+  }
+  
+}

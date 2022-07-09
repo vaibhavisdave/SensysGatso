@@ -1,0 +1,42 @@
+package com.gatso.traffic.events.producer;
+
+
+
+import static org.mockito.Mockito.verify;
+
+import com.gatso.traffic.events.SpeedEvent;
+import com.gatso.traffic.events.producers.TrafficEventProducer;
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationEventPublisher;
+
+
+
+/**
+ *Class to test TrafficEventProducer.
+ *
+ * @author vighn
+ *
+ */
+@SpringBootTest(classes = {com.gatso.traffic.events.EventsApplication.class})
+public class TrafficEventProducerTest {
+
+  @Mock
+  private ApplicationEventPublisher eventPublisher;
+
+ 
+  @Captor
+  private ArgumentCaptor<SpeedEvent> captor;
+  
+  @Test
+  public void testStartEvents() throws Exception {
+
+    TrafficEventProducer.startEvents();
+
+    verify(eventPublisher).publishEvent(captor.capture());
+  }
+
+}

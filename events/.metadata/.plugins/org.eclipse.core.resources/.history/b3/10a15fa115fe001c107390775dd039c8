@@ -1,0 +1,10 @@
+package com.gatso.traffic.events.data;
+
+/**
+ * Voilation data object.
+ * @author vighn
+ *
+ */
+public class Voilation {
+
+}

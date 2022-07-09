@@ -1,0 +1,56 @@
+package com.gatso.traffic.events.producers;
+
+import com.gatso.traffic.events.SpeedEvent;
+import com.gatso.traffic.events.data.TrafficEventEntity;
+import com.gatso.traffic.events.data.setup.TrafficEventDataSetup;
+import java.util.Date;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
+
+
+
+/**
+ * Produces traffic event.
+ *
+ * @author vighn
+ *
+ */
+public class TrafficEventProducer {
+  @Autowired
+  private static ApplicationEventPublisher applicationEventPublisher;
+  
+  /**
+   *Pushes the event the list.
+   *
+   *@throws throws InterruptedException
+   */
+  public static void startEvents() throws InterruptedException {
+    int i = 0;
+    boolean alternateFlag = false;
+    boolean isPaid = false;
+    while (i < 50) {
+      if (alternateFlag) {
+        produceEvent(getSpeedEvent(isPaid, "SPEED"));
+      } else {
+        produceEvent(getSpeedEvent(isPaid));
+      }     
+      Thread.sleep(6000L);
+      alternateFlag = !alternateFlag;
+      isPaid = !isPaid;
+      i++;      
+    }
+  }
+
+  private static void produceEvent(TrafficEventEntity entity) {
+    TrafficEventDataSetup.recordEventEntity(entity);
+    SpeedEvent event = new SpeedEvent(TrafficEventProducer.class, entity);
+    applicationEventPublisher.publishEvent(event);
+  }
+
+  private static TrafficEventEntity getSpeedEvent(boolean isPaid, String type) {
+    TrafficEventEntity entity = new TrafficEventEntity(((Double) Math.random()).longValue(),
+        new Date(), type,
+        "ABC-123", 50L, 87L, "km/h", isPaid);
+    return entity;
+  }
+}

@@ -1,0 +1,14 @@
+package com.gatso.traffic.events.controllers;
+
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * Rest api to fetch Violation.
+ *
+ * @author vighn
+ *
+ */
+@RestController
+public class ViolationController {
+
+}
