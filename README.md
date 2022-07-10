@@ -1,5 +1,5 @@
 # Events
-This is a Spring Boot application. This application stores and processes traffic events.
+This is a Spring Boot application. This application stores and processes traffic events. To understand the architecture of the system, please refer to SenSysGatso Architecture.png at the root folder level.
 
 1.  After the application starts up, a custom application event is published to add different traffic events.
     There are respective suscriber for the every type of event. 
